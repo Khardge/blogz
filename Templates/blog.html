@@ -2,21 +2,21 @@
 
 {% block content %}
 
-<h1>Add a Blog Entry</h1>
+    <h1>Blogz Users/blogs</h1>
 
-{% if blogs|length == 0 %}
-<p>Nothing yet</p>
-{% else %}
+    {% if blogs|length == 0 %}
+    <p>Nothing yet</p>
+    {% else %}
 
-<div class="blogentry2">
-{% for blog in blogs %}
-<h2><a href="./blog?id={{blog.id}}">{{blog.title}}<a></h2>
-<p>{{blog.body}}</p>
-{% endfor %}
-</div>
-{%endif%}
+        <div class="blogentry2">
+            {% for blog in blogs %}
+            <h2><a href="./blog?id={{blog.id}}">{{blog.title}}<a></h2>
+            <p>{{blog.body}} </p>
+            <h4>Written by: <a href="./blog?user={{blog.owner.username}}">{{blog.owner.username}}<a></h4>
+            {% endfor %}
+        </div>
+    {%endif%}
 {% endblock %}
-
 
 
 
